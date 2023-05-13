@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import FileExtensionValidator
 
 # Create your models here.
 class LessonTeacher(models.Model):
@@ -93,6 +94,11 @@ class Banner(models.Model):
     image = models.FileField(
         upload_to = 'banners/',
         verbose_name = "Изображение",
+        validators = [
+            FileExtensionValidator(
+                allowed_extensions=["png", "jpg", "jpeg"]
+            )
+        ],
     )
 
     lesson = models.ForeignKey(

@@ -5,8 +5,35 @@ from .models import(
     Lesson,
     Banner
 )
+
+
 # Register your models here.
-admin.site.register(LessonTeacher)
-admin.site.register(LessonType)
-admin.site.register(Lesson)
-admin.site.register(Banner)
+@admin.register(LessonTeacher)
+class LessonTeacherModelAdmin(admin.ModelAdmin):
+    fields = (
+        'name',
+    )
+
+
+@admin.register(LessonType)
+class LessonTypeModelAdmin(admin.ModelAdmin):
+    fields = (
+        'name',
+    )
+
+
+@admin.register(Lesson)
+class LessonModelAdmin(admin.ModelAdmin):
+    fields = (
+        'mosque',
+        'type',
+        'teacher'
+    )
+
+
+@admin.register(Banner)
+class BannerModelAdmin(admin.ModelAdmin):
+    fields = (
+        'image',
+        'lesson',
+    )

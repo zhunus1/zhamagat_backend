@@ -1,4 +1,6 @@
 from django.db import models
+from django.core.validators import FileExtensionValidator
+
 
 # Create your models here.
 class Region(models.Model):
@@ -72,6 +74,11 @@ class Mosque(models.Model):
     image = models.FileField(
         upload_to = 'mosques/',
         verbose_name = "Изображение",
+        validators = [
+            FileExtensionValidator(
+                allowed_extensions=["png", "jpg", "jpeg"]
+            )
+        ],
     )
 
     created = models.DateTimeField(
