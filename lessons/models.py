@@ -51,6 +51,11 @@ class LessonType(models.Model):
 
 
 class Lesson(models.Model):
+    CHOICES = (
+        ('MALE', 'Мужчины'),
+        ('FEMALE', 'Женщины'),
+    )
+
     mosque = models.ForeignKey(
         'mosques.Mosque', 
         on_delete = models.CASCADE,
@@ -70,6 +75,24 @@ class Lesson(models.Model):
         on_delete = models.CASCADE,
         verbose_name = "Учитель",
         related_name = 'lessons'
+    )
+
+    gender = models.CharField(
+        max_length = 300, 
+        choices = CHOICES,
+        verbose_name = "Для кого",
+    )
+
+    start_time = models.TimeField(
+        verbose_name = "Время начала",
+    )
+
+    end_time = models.TimeField(
+        verbose_name = "Время конца",
+    )
+
+    date = models.DateField(
+        verbose_name = "Дата урока",
     )
     
     created = models.DateTimeField(
