@@ -37,7 +37,7 @@ class LessonSerializer(serializers.ModelSerializer):
         )
 
 
-class BannerDetailSerializer(serializers.ModelSerializer):
+class BannerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Banner
         fields = (

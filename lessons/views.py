@@ -8,6 +8,7 @@ from .models import (
 )
 from .serializers import (
     LessonSerializer,
+    BannerSerializer
 )
 from .filters import (
     LessonFilter,
@@ -31,7 +32,7 @@ class LessonViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class BannerViewSet(viewsets.ReadOnlyModelViewSet):
-    serializer_class = LessonSerializer
+    serializer_class = BannerSerializer
     queryset = Banner.objects.all()
     filter_backends = [DjangoFilterBackend]
     filterset_fields = (
