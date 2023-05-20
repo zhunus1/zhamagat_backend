@@ -136,6 +136,11 @@ class Banner(models.Model):
         related_name = 'banners'
     )
     
+    featured = models.BooleanField(
+        default = False,
+        verbose_name = "Отображать на главной",
+    )
+
     created = models.DateTimeField(
         verbose_name = "Создано",
         auto_now_add = True,

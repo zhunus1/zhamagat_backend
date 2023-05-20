@@ -41,4 +41,5 @@ class BannerModelAdmin(admin.ModelAdmin):
     fields = (
         'image',
         'lesson',
+        'featured',
     )
