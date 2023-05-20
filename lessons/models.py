@@ -70,6 +70,11 @@ class Lesson(models.Model):
         related_name = 'lessons'
     )
 
+    periodicity = models.BooleanField(
+        default = False,
+        verbose_name = "Еженедельно",
+    )
+
     teacher = models.ForeignKey(
         LessonTeacher, 
         on_delete = models.CASCADE,
@@ -78,7 +83,7 @@ class Lesson(models.Model):
     )
 
     gender = models.CharField(
-        max_length = 300, 
+        max_length = 7, 
         choices = CHOICES,
         verbose_name = "Для кого",
     )

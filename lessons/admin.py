@@ -27,6 +27,7 @@ class LessonModelAdmin(admin.ModelAdmin):
     fields = (
         'mosque',
         'type',
+        'periodicity',
         'teacher',
         'gender',
         'start_time',
