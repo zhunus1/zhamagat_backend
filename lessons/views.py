@@ -3,18 +3,24 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import (
+    LessonType,
     Lesson,
     Banner
 )
 from .serializers import (
+    LessonTypeDetailSerializer,
     LessonSerializer,
-    BannerSerializer
+    BannerSerializer,
 )
 from .filters import (
     LessonFilter,
 )
 
 # Create your views here.
+class LessonTypeViewSet(viewsets.ReadOnlyModelViewSet):
+    serializer_class = LessonTypeDetailSerializer
+    queryset = LessonType.objects.all()
+
 
 class LessonViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = LessonSerializer

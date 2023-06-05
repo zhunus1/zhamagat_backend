@@ -4,15 +4,21 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django.shortcuts import render
 from .serializers import (
     MosqueSerializer,
+    CityListSerializer
 )
 from .models import (
     Mosque,
+    City
 )
 from .filters import (
     MosqueFilter,
 )
 
 # Create your views here.
+class CityViewSet(viewsets.ReadOnlyModelViewSet):
+    serializer_class = CityListSerializer
+    queryset = City.objects.all()
+
 
 class MosqueViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = MosqueSerializer

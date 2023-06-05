@@ -26,6 +26,8 @@ class LessonTypeDetailSerializer(serializers.ModelSerializer):
 
 
 class LessonSerializer(serializers.ModelSerializer):
+    type = LessonTypeDetailSerializer()
+    teacher = LessonTeacherDetailSerializer()
     class Meta:
         model = Lesson
         fields = (

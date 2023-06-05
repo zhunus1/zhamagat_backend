@@ -8,6 +8,15 @@ from lessons.serializers import (
     LessonSerializer,
 )
 
+class CityListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = City
+        fields = (
+            'id',
+            'name',
+        )
+
+
 class RegionDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Region
