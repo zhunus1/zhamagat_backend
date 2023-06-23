@@ -33,7 +33,7 @@ class LessonViewSet(viewsets.ReadOnlyModelViewSet):
             'mosque__city',
             'type',
             'teacher'
-        ).all()
+        ).order_by('date').all()
         return queryset
 
 
