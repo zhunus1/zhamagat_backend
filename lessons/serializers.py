@@ -5,7 +5,10 @@ from .models import (
     Lesson,
     Banner
 )
-
+from mosques.models import (
+    City,
+    Mosque
+)
 
 class LessonTeacherDetailSerializer(serializers.ModelSerializer):
     class Meta:
@@ -40,10 +43,22 @@ class LessonSerializer(serializers.ModelSerializer):
 
 
 class BannerSerializer(serializers.ModelSerializer):
+    city_id = serializers.SerializerMethodField()
+    mosque_id = serializers.SerializerMethodField()
+
     class Meta:
         model = Banner
         fields = (
             'id',
             'image',
-            'lesson'
+            'lesson',
+            'featured',
+            'city_id',
+            'mosque_id'
         )
+    
+    def get_city_id(self, obj):
+        return obj.lesson.mosque.city.id
+
+    def get_mosque_id(self, obj):
+        return obj.lesson.mosque.id
