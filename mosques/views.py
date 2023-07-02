@@ -26,7 +26,17 @@ class MosqueViewSet(viewsets.ReadOnlyModelViewSet):
     filterset_class = MosqueFilter
 
     def get_queryset(self):
-        queryset = Mosque.objects.select_related(
-            'city',
-        ).all()
+        queryset = Mosque.objects \
+            .select_related(
+                'city',
+            ).prefetch_related(
+                'lessons',
+            ).all()
         return queryset
+    
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['gender'] = self.request.query_params.get('gender')
+        return context
+    
+    
