@@ -48,6 +48,30 @@ class LessonType(models.Model):
     class Meta:
         verbose_name = "Тип урока"
         verbose_name_plural = "Типы уроков"
+    
+
+class LessonDegree(models.Model):
+    name = models.CharField(
+        max_length = 255,
+        verbose_name = "Название",
+    )
+        
+    created = models.DateTimeField(
+        verbose_name = "Создано",
+        auto_now_add = True,
+    )
+
+    updated = models.DateTimeField(
+        verbose_name = "Обновлено",
+        auto_now = True,
+    )
+
+    def __str__(self):
+        return "%s" % self.name
+        
+    class Meta:
+        verbose_name = "Уровень урока"
+        verbose_name_plural = "Уровни уроков"
 
 
 class Lesson(models.Model):
@@ -68,6 +92,15 @@ class Lesson(models.Model):
         on_delete = models.CASCADE,
         verbose_name = "Тип урока",
         related_name = 'lessons'
+    )
+
+    degree_type = models.ForeignKey(
+        LessonDegree, 
+        on_delete = models.CASCADE,
+        verbose_name = "Уровень урока",
+        related_name = 'lessons',
+        blank=True, 
+        null=True
     )
 
     periodicity = models.BooleanField(
@@ -97,7 +130,11 @@ class Lesson(models.Model):
     )
 
     date = models.DateField(
-        verbose_name = "Дата урока",
+        verbose_name = "День недели",
+    )
+
+    start_date = models.DateField(
+        verbose_name = "Старт курса",
     )
     
     created = models.DateTimeField(

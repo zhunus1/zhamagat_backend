@@ -6,6 +6,7 @@ router = DefaultRouter()
 router.register(r'lessons', views.LessonViewSet, basename="lesson")
 router.register(r'banners', views.BannerViewSet, basename="banner")
 router.register(r'types', views.LessonTypeViewSet, basename="lesson-type")
+router.register(r'degrees', views.LessonDegreeViewSet, basename="lesson-degree")
 
 # The API URLs are now determined automatically by the router.
 urlpatterns = [

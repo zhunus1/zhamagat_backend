@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import(
     LessonTeacher,
     LessonType,
+    LessonDegree,
     Lesson,
     Banner
 )
@@ -22,17 +23,26 @@ class LessonTypeModelAdmin(admin.ModelAdmin):
     )
 
 
+@admin.register(LessonDegree)
+class LessonDegreeModelAdmin(admin.ModelAdmin):
+    fields = (
+        'name',
+    )
+
+
 @admin.register(Lesson)
 class LessonModelAdmin(admin.ModelAdmin):
     fields = (
         'mosque',
         'type',
+        'degree_type',
         'periodicity',
         'teacher',
         'gender',
         'start_time',
         'end_time',
-        'date'
+        'date',
+        'start_date'
     )
 
 

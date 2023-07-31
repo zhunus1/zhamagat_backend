@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import (
     LessonTeacher,
     LessonType,
+    LessonDegree,
     Lesson,
     Banner
 )
@@ -28,6 +29,15 @@ class LessonTypeDetailSerializer(serializers.ModelSerializer):
         )
 
 
+class LessonDegreeDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = LessonDegree
+        fields = (
+            'id',
+            'name',
+        )
+
+
 class LessonSerializer(serializers.ModelSerializer):
     type = LessonTypeDetailSerializer()
     teacher = LessonTeacherDetailSerializer()
@@ -35,10 +45,12 @@ class LessonSerializer(serializers.ModelSerializer):
         model = Lesson
         fields = (
             'type',
+            'degree_type',
             'teacher',
             'start_time',
             'end_time',
-            'date'
+            'date',
+            'start_date'
         )
 
 

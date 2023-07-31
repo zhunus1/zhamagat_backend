@@ -4,11 +4,13 @@ from rest_framework import viewsets
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import (
     LessonType,
+    LessonDegree,
     Lesson,
     Banner
 )
 from .serializers import (
     LessonTypeDetailSerializer,
+    LessonDegreeDetailSerializer,
     LessonSerializer,
     BannerSerializer,
 )
@@ -20,6 +22,11 @@ from .filters import (
 class LessonTypeViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = LessonTypeDetailSerializer
     queryset = LessonType.objects.all()
+
+
+class LessonDegreeViewSet(viewsets.ReadOnlyModelViewSet):
+    serializer_class = LessonDegreeDetailSerializer
+    queryset = LessonDegree.objects.all()
 
 
 class LessonViewSet(viewsets.ReadOnlyModelViewSet):
