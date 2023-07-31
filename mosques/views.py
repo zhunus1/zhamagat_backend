@@ -36,7 +36,7 @@ class MosqueViewSet(viewsets.ReadOnlyModelViewSet):
         gender = self.request.query_params.get('gender')
 
         if gender:
-            queryset = queryset.filter(lessons__gender=gender)
+            queryset = queryset.filter(lessons__gender=gender).distinct()
         return queryset
     
     
