@@ -32,11 +32,12 @@ class MosqueViewSet(viewsets.ReadOnlyModelViewSet):
             ).prefetch_related(
                 'lessons',
             ).all()
+
+        gender = self.request.query_params.get('gender')
+
+        if gender:
+            queryset = queryset.filter(lessons__gender=gender)
         return queryset
     
-    def get_serializer_context(self):
-        context = super().get_serializer_context()
-        context['gender'] = self.request.query_params.get('gender')
-        return context
     
     
