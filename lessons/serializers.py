@@ -50,6 +50,7 @@ class LessonSerializer(serializers.ModelSerializer):
             'start_time',
             'end_time',
             'date',
+            'week_day',
             'start_date'
         )
 

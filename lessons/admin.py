@@ -42,7 +42,6 @@ class LessonModelAdmin(admin.ModelAdmin):
         'start_time',
         'end_time',
         'week_day',
-        'date',
         'start_date'
     )
 
