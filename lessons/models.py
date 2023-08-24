@@ -80,6 +80,16 @@ class Lesson(models.Model):
         ('FEMALE', 'Женщины'),
     )
 
+    WEEK_DAYS = (
+        ('MN', 'Понедельник'),
+        ('TU', 'Вторник'),
+        ('WD', 'Среда'),
+        ('TH', 'Четверг'),
+        ('FR', 'Пятница'),
+        ('ST', 'Суббота'),
+        ('SN', 'Воскресенье'),
+    )
+
     mosque = models.ForeignKey(
         'mosques.Mosque', 
         on_delete = models.CASCADE,
@@ -130,6 +140,12 @@ class Lesson(models.Model):
     )
 
     date = models.DateField(
+        verbose_name = "День недели",
+    )
+
+    week_day = models.CharField(
+        max_length = 7, 
+        choices = WEEK_DAYS,
         verbose_name = "День недели",
     )
 
