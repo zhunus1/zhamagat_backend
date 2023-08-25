@@ -46,6 +46,7 @@ class LessonSerializer(serializers.ModelSerializer):
         fields = (
             'type',
             'degree_type',
+            'gender',
             'teacher',
             'start_time',
             'end_time',
