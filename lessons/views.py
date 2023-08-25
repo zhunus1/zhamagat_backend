@@ -40,7 +40,7 @@ class LessonViewSet(viewsets.ReadOnlyModelViewSet):
             'mosque__city',
             'type',
             'teacher'
-        ).order_by('date').all()
+        ).order_by('week_day').all()
         return queryset
 
 
