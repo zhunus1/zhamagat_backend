@@ -22,5 +22,4 @@ class LessonFilter(filters.FilterSet):
             'gender',
             'start_time',
             'end_time',
-            'date'
         )

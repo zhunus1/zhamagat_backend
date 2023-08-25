@@ -139,10 +139,6 @@ class Lesson(models.Model):
         verbose_name = "Время конца",
     )
 
-    date = models.DateField(
-        verbose_name = "День недели",
-    )
-
     week_day = models.CharField(
         max_length = 7, 
         choices = WEEK_DAYS,
