@@ -41,6 +41,8 @@ class LessonDegreeDetailSerializer(serializers.ModelSerializer):
 class LessonSerializer(serializers.ModelSerializer):
     type = LessonTypeDetailSerializer()
     teacher = LessonTeacherDetailSerializer()
+    gender = serializers.CharField(source='get_gender_display')
+    week_day = serializers.CharField(source='get_week_day_display')
     class Meta:
         model = Lesson
         fields = (
